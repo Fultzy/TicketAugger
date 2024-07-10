@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TicketAugger.Utilities
 {
@@ -38,7 +39,14 @@ namespace TicketAugger.Utilities
             if (IsConnected)
                 return;
             else
-                TcpClient.Connect(serverAddress, port);
+                try
+                {
+                    TcpClient.Connect(serverAddress, port);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("An error occurred: " + e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
 
         public void SendMessage(string message)
