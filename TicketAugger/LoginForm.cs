@@ -33,10 +33,11 @@ namespace TicketAugger
             loginButton.Click += LoginButton_Click;
 
         }
-
+        //todo create firewall rule for this
+        //Currently it will be actively refused
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            AuggerClient.Instance().ConnectToServer("CockBlaster9000", 5555);
+            AuggerClient.Instance().ConnectToServer("localhost", 5555);
 
             if (usernameTextBox.Text == "" && passwordTextBox.Text == "")
             {
