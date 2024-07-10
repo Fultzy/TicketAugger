@@ -38,7 +38,7 @@ namespace TicketAugger
         {
             AuggerClient.Instance().ConnectToServer("192.168.1.218", 5555);
 
-            if (usernameTextBox.Text == "" && passwordTextBox.Text == "")
+            if (usernameTextBox.Text == "" && passwordTextBox.Text == "" && AuggerClient.Instance().IsConnected)
             {
                 SuccessfullLogin?.Invoke(this, EventArgs.Empty);
                 //todo if no connection, open selectHostForm.cs
