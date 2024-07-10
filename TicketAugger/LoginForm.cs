@@ -41,6 +41,7 @@ namespace TicketAugger
             if (usernameTextBox.Text == "" && passwordTextBox.Text == "")
             {
                 SuccessfullLogin?.Invoke(this, EventArgs.Empty);
+                //todo if no connection, open selectHostForm.cs
             }
         }
 

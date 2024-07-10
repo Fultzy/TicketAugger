@@ -15,6 +15,11 @@ namespace TicketAugger
         [STAThread]
         static void Main()
         {
+            //Todo Ask for the hostname, or IP upon first launch. Write to a settings.txt file, and pull this info from there going forward
+            //todo if settings.txt exists, skip selectHostForm.cs
+
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

@@ -87,6 +87,12 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="selectHostForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selectHostForm.Designer.cs">
+      <DependentUpon>selectHostForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\AuggerClient.cs" />
     <Compile Include="Utilities\Logger\Logger.cs" />
     <EmbeddedResource Include="MainForm.resx">
@@ -104,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="selectHostForm.resx">
+      <DependentUpon>selectHostForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
