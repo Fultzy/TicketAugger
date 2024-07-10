@@ -33,7 +33,10 @@ namespace TicketAugger
             loginButton.Click += LoginButton_Click;
 
         }
+
         //todo create a settings.txt for this record. This would allow users to change the servers IP address. The problem with using hostname is if they use a different network adapter
+        // note: Low level users, such as who would use this program, should not be allowed/offered to enter an IP address.
+        // This should be done by an admin either through a settings file or a settings form in the Ticket master program. which would then save to the settings file. for now, we will use a settings file.
         private void LoginButton_Click(object sender, EventArgs e)
         {
             AuggerClient.Instance().ConnectToServer("192.168.1.218", 5555);
