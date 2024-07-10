@@ -33,11 +33,10 @@ namespace TicketAugger
             loginButton.Click += LoginButton_Click;
 
         }
-        //todo create firewall rule for this
-        //Currently it will be actively refused
+        //todo create a settings.txt for this record. This would allow users to change the servers IP address. The problem with using hostname is if they use a different network adapter
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            AuggerClient.Instance().ConnectToServer("localhost", 5555);
+            AuggerClient.Instance().ConnectToServer("192.168.1.218", 5555);
 
             if (usernameTextBox.Text == "" && passwordTextBox.Text == "")
             {
