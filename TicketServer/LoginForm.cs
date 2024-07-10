@@ -10,17 +10,15 @@ using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
 
-namespace TicketAugger
+namespace TicketServer
 {
     public partial class LoginForm : MaterialForm
     {
-
         public event EventHandler SuccessfullLogin;
 
         public LoginForm()
         {
             InitializeComponent();
-
             var materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
@@ -30,7 +28,6 @@ namespace TicketAugger
         private void LoginForm_Load(object sender, EventArgs e)
         {
             loginButton.Click += LoginButton_Click;
-
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -39,18 +36,6 @@ namespace TicketAugger
             {
                 SuccessfullLogin?.Invoke(this, EventArgs.Empty);
 
-            }
-        }
-
-        private void saveUsernameCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (saveUsernameCheckBox.Checked)
-            {
-                //SaveUsername();
-            }
-            else
-            {
-                //ClearUsername();
             }
         }
     }

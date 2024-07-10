@@ -5,7 +5,7 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketAugger", "TicketAugger\TicketAugger.csproj", "{79515009-5E0F-482F-9AB9-D1706C10E33C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketServer", "..\TicketMaster\TicketMaster\TicketServer.csproj", "{D4529F93-F89C-4B39-8C45-A103A7175AE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketServer", "TicketServer\TicketServer.csproj", "{D4529F93-F89C-4B39-8C45-A103A7175AE2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

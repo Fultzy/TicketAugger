@@ -1,4 +1,4 @@
-﻿namespace TicketAugger
+﻿namespace TicketServer
 {
     partial class LoginForm
     {
@@ -28,11 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.saveUsernameCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
             this.loginButton = new MaterialSkin.Controls.MaterialButton();
             this.usernameTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.passwordTextBox = new MaterialSkin.Controls.MaterialTextBox2();
-            this.saveUsernameCheckBox = new MaterialSkin.Controls.MaterialCheckbox();
             this.SuspendLayout();
+            // 
+            // saveUsernameCheckBox
+            // 
+            this.saveUsernameCheckBox.AutoSize = true;
+            this.saveUsernameCheckBox.Depth = 0;
+            this.saveUsernameCheckBox.Location = new System.Drawing.Point(62, 236);
+            this.saveUsernameCheckBox.Margin = new System.Windows.Forms.Padding(0);
+            this.saveUsernameCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.saveUsernameCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
+            this.saveUsernameCheckBox.Name = "saveUsernameCheckBox";
+            this.saveUsernameCheckBox.ReadOnly = false;
+            this.saveUsernameCheckBox.Ripple = true;
+            this.saveUsernameCheckBox.Size = new System.Drawing.Size(145, 37);
+            this.saveUsernameCheckBox.TabIndex = 9;
+            this.saveUsernameCheckBox.Text = "Save Username";
+            this.saveUsernameCheckBox.UseVisualStyleBackColor = true;
             // 
             // loginButton
             // 
@@ -47,7 +63,7 @@
             this.loginButton.Name = "loginButton";
             this.loginButton.NoAccentTextColor = System.Drawing.Color.Empty;
             this.loginButton.Size = new System.Drawing.Size(64, 36);
-            this.loginButton.TabIndex = 4;
+            this.loginButton.TabIndex = 8;
             this.loginButton.Text = "Login";
             this.loginButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.loginButton.UseAccentColor = false;
@@ -78,7 +94,7 @@
             this.usernameTextBox.SelectionStart = 0;
             this.usernameTextBox.ShortcutsEnabled = true;
             this.usernameTextBox.Size = new System.Drawing.Size(250, 48);
-            this.usernameTextBox.TabIndex = 1;
+            this.usernameTextBox.TabIndex = 6;
             this.usernameTextBox.TabStop = false;
             this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.usernameTextBox.TrailingIcon = null;
@@ -107,28 +123,11 @@
             this.passwordTextBox.SelectionStart = 0;
             this.passwordTextBox.ShortcutsEnabled = true;
             this.passwordTextBox.Size = new System.Drawing.Size(250, 48);
-            this.passwordTextBox.TabIndex = 3;
+            this.passwordTextBox.TabIndex = 7;
             this.passwordTextBox.TabStop = false;
             this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.passwordTextBox.TrailingIcon = null;
             this.passwordTextBox.UseSystemPasswordChar = false;
-            // 
-            // saveUsernameCheckBox
-            // 
-            this.saveUsernameCheckBox.AutoSize = true;
-            this.saveUsernameCheckBox.Depth = 0;
-            this.saveUsernameCheckBox.Location = new System.Drawing.Point(62, 236);
-            this.saveUsernameCheckBox.Margin = new System.Windows.Forms.Padding(0);
-            this.saveUsernameCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.saveUsernameCheckBox.MouseState = MaterialSkin.MouseState.HOVER;
-            this.saveUsernameCheckBox.Name = "saveUsernameCheckBox";
-            this.saveUsernameCheckBox.ReadOnly = false;
-            this.saveUsernameCheckBox.Ripple = true;
-            this.saveUsernameCheckBox.Size = new System.Drawing.Size(145, 37);
-            this.saveUsernameCheckBox.TabIndex = 5;
-            this.saveUsernameCheckBox.Text = "Save Username";
-            this.saveUsernameCheckBox.UseVisualStyleBackColor = true;
-            this.saveUsernameCheckBox.CheckedChanged += new System.EventHandler(this.saveUsernameCheckBox_CheckedChanged);
             // 
             // LoginForm
             // 
@@ -140,9 +139,8 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Name = "LoginForm";
-            this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "TicketAugger";
+            this.Text = "Server";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,9 +149,9 @@
 
         #endregion
 
+        private MaterialSkin.Controls.MaterialCheckbox saveUsernameCheckBox;
         private MaterialSkin.Controls.MaterialButton loginButton;
         private MaterialSkin.Controls.MaterialTextBox2 usernameTextBox;
         private MaterialSkin.Controls.MaterialTextBox2 passwordTextBox;
-        private MaterialSkin.Controls.MaterialCheckbox saveUsernameCheckBox;
     }
 }
