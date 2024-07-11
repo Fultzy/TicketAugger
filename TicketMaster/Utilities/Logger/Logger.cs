@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicketServer.Utilities
+namespace TicketMaster.Utilities
 {
     public static class Logger
     {
@@ -18,7 +18,7 @@ namespace TicketServer.Utilities
         // throw new Exception(Logger.Error(Logger.Importing(errorMessage)));
 
 
-        public static void CheckAllLogFiles(string path)
+    public static void CheckAllLogFiles(string path)
         {
             var cutOff = DateTime.Now.AddDays(-1);
 
@@ -146,4 +146,3 @@ namespace TicketServer.Utilities
         }
     }
 }
-

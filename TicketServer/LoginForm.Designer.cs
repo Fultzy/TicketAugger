@@ -49,6 +49,7 @@
             this.saveUsernameCheckBox.TabIndex = 9;
             this.saveUsernameCheckBox.Text = "Save Username";
             this.saveUsernameCheckBox.UseVisualStyleBackColor = true;
+            this.saveUsernameCheckBox.CheckedChanged += new System.EventHandler(this.saveUsernameCheckBox_CheckedChanged_1);
             // 
             // loginButton
             // 
@@ -139,7 +140,6 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Name = "LoginForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);

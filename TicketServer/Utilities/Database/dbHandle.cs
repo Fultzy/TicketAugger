@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicketAugger.Utilities.Database
+namespace TicketServer.Utilities.Database
 {
     internal class dbHandle
     {

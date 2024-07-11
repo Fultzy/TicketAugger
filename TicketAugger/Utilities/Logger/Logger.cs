@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TicketAugger.Utilities.Logger
+namespace TicketAugger.Utilities
 {
     public static class Logger
     {

@@ -42,11 +42,11 @@
             this.ClientCountLabel = new MaterialSkin.Controls.MaterialLabel();
             this.NetworkSelectionBox = new MaterialSkin.Controls.MaterialComboBox();
             this.ServerStatsCard = new MaterialSkin.Controls.MaterialCard();
+            this.OpenSocketLabel = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.PingButton = new MaterialSkin.Controls.MaterialButton();
             this.PingLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.OpenSocketLabel = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1.SuspendLayout();
             this.ServerStatsCard.SuspendLayout();
             this.SuspendLayout();
@@ -277,6 +277,30 @@
             this.ServerStatsCard.TabIndex = 10;
             this.ServerStatsCard.Visible = false;
             // 
+            // OpenSocketLabel
+            // 
+            this.OpenSocketLabel.AutoSize = true;
+            this.OpenSocketLabel.Depth = 0;
+            this.OpenSocketLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.OpenSocketLabel.Location = new System.Drawing.Point(114, 67);
+            this.OpenSocketLabel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.OpenSocketLabel.Name = "OpenSocketLabel";
+            this.OpenSocketLabel.Size = new System.Drawing.Size(19, 19);
+            this.OpenSocketLabel.TabIndex = 5;
+            this.OpenSocketLabel.Text = "na";
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Location = new System.Drawing.Point(23, 67);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(85, 19);
+            this.materialLabel6.TabIndex = 4;
+            this.materialLabel6.Text = "Connection:";
+            // 
             // PingButton
             // 
             this.PingButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -321,30 +345,6 @@
             this.materialLabel5.TabIndex = 0;
             this.materialLabel5.Text = "Ping:";
             // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(23, 67);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(85, 19);
-            this.materialLabel6.TabIndex = 4;
-            this.materialLabel6.Text = "Connection:";
-            // 
-            // OpenSocketLabel
-            // 
-            this.OpenSocketLabel.AutoSize = true;
-            this.OpenSocketLabel.Depth = 0;
-            this.OpenSocketLabel.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.OpenSocketLabel.Location = new System.Drawing.Point(114, 67);
-            this.OpenSocketLabel.MouseState = MaterialSkin.MouseState.HOVER;
-            this.OpenSocketLabel.Name = "OpenSocketLabel";
-            this.OpenSocketLabel.Size = new System.Drawing.Size(19, 19);
-            this.OpenSocketLabel.TabIndex = 5;
-            this.OpenSocketLabel.Text = "na";
-            // 
             // ServerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,7 +354,6 @@
             this.Controls.Add(this.NetworkSelectionBox);
             this.Controls.Add(this.materialCard1);
             this.Name = "ServerForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Server";
             this.Load += new System.EventHandler(this.ServerForm_Load);
             this.materialCard1.ResumeLayout(false);

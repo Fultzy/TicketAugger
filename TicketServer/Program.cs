@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TicketServer.Utilities;
+using TicketServer.Properties;
 
 namespace TicketServer
 {
@@ -18,6 +20,7 @@ namespace TicketServer
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            SettingsFile.Apply();
 
             LoginForm loginForm = new LoginForm();
             loginForm.SuccessfullLogin += (sender, e) =>

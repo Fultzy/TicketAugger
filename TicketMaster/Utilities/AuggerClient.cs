@@ -7,11 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TicketAugger.Utilities
+namespace TicketMaster.Utilities
 {
     internal class AuggerClient
     {
         private TcpClient TcpClient;
+        private int Port { get; set; }
+        private readonly string IpAddress;
         public bool IsConnected => TcpClient.Connected;
 
         // A singleton Class

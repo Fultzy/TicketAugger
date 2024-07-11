@@ -3,7 +3,6 @@ using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 using MaterialSkin.Controls;
 using MaterialSkin;
-using TicketAugger.Utilities.Logger;
 using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
@@ -27,7 +26,7 @@ namespace TicketServer.Utilities
         public IEnumerable<TcpClient> Clients { get; private set; }
         
         
-        // A singleton Class
+        // A Singleton class
         private static Server instance;
 
         public static Server Instance()
@@ -53,7 +52,7 @@ namespace TicketServer.Utilities
             Listener = new TcpListener(ServerEP);
             Listener.Start();
 
-            StartHeartbeat();
+            //AllowConnections();
 
             IsOnline = true;
             Task.Delay(800).Wait();
@@ -65,10 +64,8 @@ namespace TicketServer.Utilities
         {
             IsOnline = false;
             Listener.Stop();
-
             
             ServerEP = null;
-
 
             Task.Delay(800).Wait();
 
@@ -83,7 +80,8 @@ namespace TicketServer.Utilities
             return this;
         }
 
-        private void StartHeartbeat()
+
+        private void AllowConnections()
         {
             Task.Run(() =>
             {
@@ -93,7 +91,6 @@ namespace TicketServer.Utilities
                     {
                         TcpClient client = Listener.AcceptTcpClient();
                         Clients.Append(client);
-                        
                     }
                     catch (Exception e)
                     {
@@ -104,7 +101,9 @@ namespace TicketServer.Utilities
         }
 
 
-
+        /// <summary>
+        /// Get the current IPv4 address of the server and return it as a string
+        /// </summary>
         public string GetCurrentIPv4Address()
         {
             string ipAddress = string.Empty;
@@ -129,6 +128,9 @@ namespace TicketServer.Utilities
             return ipAddress;
         }
 
+        /// <summary>
+        /// Get a list of all network adapters
+        /// </summary>
         public object[] GetNetworkAdapters()
         {
             NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
@@ -153,12 +155,19 @@ namespace TicketServer.Utilities
             return networkList.ToArray();
         }
 
+        /// <summary>
+        /// Apply the selected network adapter to the server and create a new IPEndPoint
+        /// </summary>
+        /// <param name="adapterName"></param>
         public void SetAdapter(string adapterName)
         {
             ServerAdapterName = adapterName;
             ServerEP = new IPEndPoint(IPAddress.Parse(GetCurrentIPv4Address()), Port);
         }
 
+        /// <summary>
+        /// Ping the server to test the network connection
+        /// </summary>
         public int PingNetwork()
         {
             var ms = 0;
@@ -179,6 +188,9 @@ namespace TicketServer.Utilities
             return ms;
         }
 
+        /// <summary>
+        /// Test the connection to the server
+        /// </summary>
         public bool SocketTest()
         {
             

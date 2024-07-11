@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -7,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TicketAugger.Models;
+using TicketAugger.Properties;
+using TicketAugger.Utilities;
 
 namespace TicketAugger
 {
@@ -15,9 +18,13 @@ namespace TicketAugger
         [STAThread]
         static void Main()
         {
-            //Todo Ask for the hostname, or IP upon first launch. Write to a settings.txt file, and pull this info from there going forward
-            //todo if settings.txt exists, skip selectHostForm.cs
+            SettingsFile.Apply();
 
+            // Exmaple use:
+            var settings = new Settings();
+            var ip = settings.Server_ipaddress;
+            var port = settings.Server_port;
+            // MessageBox.Show(ip + ":" + port);
 
 
             Application.EnableVisualStyles();

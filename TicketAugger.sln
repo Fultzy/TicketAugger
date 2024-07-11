@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketAugger", "TicketAugge
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketServer", "TicketServer\TicketServer.csproj", "{D4529F93-F89C-4B39-8C45-A103A7175AE2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketMaster", "TicketMaster\TicketMaster.csproj", "{20A6AC1D-3D16-4797-B9F0-3469A79CF5F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D4529F93-F89C-4B39-8C45-A103A7175AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4529F93-F89C-4B39-8C45-A103A7175AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4529F93-F89C-4B39-8C45-A103A7175AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20A6AC1D-3D16-4797-B9F0-3469A79CF5F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20A6AC1D-3D16-4797-B9F0-3469A79CF5F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20A6AC1D-3D16-4797-B9F0-3469A79CF5F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20A6AC1D-3D16-4797-B9F0-3469A79CF5F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

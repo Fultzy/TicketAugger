@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using TicketAugger.Properties;
 using TicketAugger.Utilities;
 
 namespace TicketAugger
@@ -32,18 +33,37 @@ namespace TicketAugger
         {
             loginButton.Click += LoginButton_Click;
 
+            if (Settings.Default.Save_username)
+            {
+                saveUsernameCheckBox.Checked = true;
+                usernameTextBox.Text = Settings.Default.Saved_username;
+            }
+
         }
 
-        //todo create a settings.txt for this record. This would allow users to change the servers IP address. The problem with using hostname is if they use a different network adapter
-        // note: Low level users, such as who would use this program, should not be allowed/offered to enter an IP address.
-        // This should be done by an admin either through a settings file or a settings form in the Ticket master program. which would then save to the settings file. for now, we will use a settings file.
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            AuggerClient.Instance().ConnectToServer("192.168.1.218", 5555);
+            // TODO: idk, make these flash a color or something cool
+            if (usernameTextBox.Text == "") { return; }
+            if (passwordTextBox.Text == "") { return; }
 
-            if (usernameTextBox.Text == "" && passwordTextBox.Text == "" && AuggerClient.Instance().IsConnected)
+            AuggerClient.Instance().ConnectToServer(Settings.Default.Server_ipaddress, Settings.Default.Server_port);
+
+            // TODO: Verify username and password on server
+            if (usernameTextBox.Text != "" && AuggerClient.Instance().IsConnected)
             {
+                if (Settings.Default.Save_username)
+                {
+                    Settings.Default.Saved_username = usernameTextBox.Text;
+                    Settings.Default.Save();
+                }
+
+                SettingsFile.Save();
+                
                 SuccessfullLogin?.Invoke(this, EventArgs.Empty);
+            }
+            else if (!AuggerClient.Instance().IsConnected)
+            {
                 //todo if no connection, open selectHostForm.cs
             }
         }
@@ -52,11 +72,12 @@ namespace TicketAugger
         {
             if (saveUsernameCheckBox.Checked)
             {
-                //SaveUsername();
+                Settings.Default.Save_username = true;
             }
             else
             {
-                //ClearUsername();
+                Settings.Default.Save_username = false;
+                Settings.Default.Saved_username = "";
             }
         }
     }
