@@ -25,7 +25,7 @@ namespace TicketMaster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.0.0.210")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Server_ipaddress {
             get {
                 return ((string)(this["Server_ipaddress"]));
@@ -37,7 +37,7 @@ namespace TicketMaster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5555")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int Server_port {
             get {
                 return ((int)(this["Server_port"]));
@@ -61,7 +61,7 @@ namespace TicketMaster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool Save_username {
             get {
                 return ((bool)(this["Save_username"]));
@@ -73,7 +73,7 @@ namespace TicketMaster.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("asdf")]
         public string Saved_username {
             get {
                 return ((string)(this["Saved_username"]));
