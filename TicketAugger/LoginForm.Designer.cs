@@ -39,6 +39,7 @@
             this.loginButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.loginButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.loginButton.Depth = 0;
+            this.loginButton.Enabled = false;
             this.loginButton.HighEmphasis = true;
             this.loginButton.Icon = null;
             this.loginButton.Location = new System.Drawing.Point(247, 238);
@@ -60,6 +61,7 @@
             this.usernameTextBox.CausesValidation = false;
             this.usernameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.usernameTextBox.Depth = 0;
+            this.usernameTextBox.Enabled = false;
             this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.usernameTextBox.HideSelection = true;
             this.usernameTextBox.Hint = "Username";
@@ -90,6 +92,7 @@
             this.passwordTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.passwordTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.passwordTextBox.Depth = 0;
+            this.passwordTextBox.Enabled = false;
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.passwordTextBox.HideSelection = true;
             this.passwordTextBox.Hint = "Password";
@@ -117,6 +120,7 @@
             // 
             this.saveUsernameCheckBox.AutoSize = true;
             this.saveUsernameCheckBox.Depth = 0;
+            this.saveUsernameCheckBox.Enabled = false;
             this.saveUsernameCheckBox.Location = new System.Drawing.Point(62, 236);
             this.saveUsernameCheckBox.Margin = new System.Windows.Forms.Padding(0);
             this.saveUsernameCheckBox.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -139,6 +143,7 @@
             this.Controls.Add(this.loginButton);
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.passwordTextBox);
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -11,5 +11,8 @@
     <Setting Name="Dark_mode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="Port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">5555</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

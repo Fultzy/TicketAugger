@@ -32,40 +32,73 @@ namespace TicketAugger
         private void LoginForm_Load(object sender, EventArgs e)
         {
             loginButton.Click += LoginButton_Click;
+            AuggerClient.Instance().ConnectionStatusChanged += Client_ConnectionStatusChanged;
 
             if (Settings.Default.Save_username)
             {
                 saveUsernameCheckBox.Checked = true;
                 usernameTextBox.Text = Settings.Default.Saved_username;
-            }
-
+            }            
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        private void Client_ConnectionStatusChanged(object sender, EventArgs e)
         {
-            // TODO: idk, make these flash a color or something cool
-            if (usernameTextBox.Text == "") { return; }
-            if (passwordTextBox.Text == "") { return; }
-
-            AuggerClient.Instance().ConnectToServer(Settings.Default.Server_ipaddress, Settings.Default.Server_port);
-
-            // TODO: Verify username and password on server
-            if (usernameTextBox.Text != "" && AuggerClient.Instance().IsConnected)
+            var client = AuggerClient.Instance();
+            if (client.IsConnected)
             {
+                EnableButtons(true);
+            }
+            else
+            {
+                EnableButtons(false);
+            }
+        }
+
+
+        /////////////////// Button Clicks ///////////////////
+
+        private async void LoginButton_Click(object sender, EventArgs e)
+        {
+            // TODO: idk, make these flash a color or something cool instead of messageboxs
+            if (usernameTextBox.Text == "") 
+            {
+                MessageBox.Show("Missing Username");
+                return; 
+            }
+            if (passwordTextBox.Text == "")
+            {
+                MessageBox.Show("Missing Password");
+                return;
+            }
+
+            EnableButtons(false); // prevent multiple clicks
+
+            var client = AuggerClient.Instance();
+            if (client.tcpClient.Connected)
+            {
+                // Save username
                 if (Settings.Default.Save_username)
                 {
                     Settings.Default.Saved_username = usernameTextBox.Text;
                     Settings.Default.Save();
                 }
-
                 SettingsFile.Save();
-                
-                SuccessfullLogin?.Invoke(this, EventArgs.Empty);
+
+                var response = await new RequestHandler().LoginAsync(usernameTextBox.Text, passwordTextBox.Text);
+
+               Console.WriteLine($"Client : Response From Server : '{response}'");
+
+                if (response == "Success")
+                {
+                    SuccessfullLogin?.Invoke(this, EventArgs.Empty);
+                    return;
+                }
+                else
+                {
+                    EnableButtons(true); // re-enable buttons if login failed
+                }
             }
-            else if (!AuggerClient.Instance().IsConnected)
-            {
-                //todo if no connection, open selectHostForm.cs
-            }
+
         }
 
         private void saveUsernameCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -78,6 +111,21 @@ namespace TicketAugger
             {
                 Settings.Default.Save_username = false;
                 Settings.Default.Saved_username = "";
+            }
+        }
+
+        private void EnableButtons(bool state)
+        {
+            if (InvokeRequired)
+            {
+                Invoke(new Action<bool>(EnableButtons), state);
+            }
+            else
+            {
+                loginButton.Enabled = state;
+                usernameTextBox.Enabled = state;
+                passwordTextBox.Enabled = state;
+                saveUsernameCheckBox.Enabled = state;
             }
         }
     }

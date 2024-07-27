@@ -38,23 +38,21 @@ namespace TicketServer
 
         private void serverStatusLabel_Click(object sender, EventArgs e)
         {
-            StartTimedStatusUpdate();
+            //StartTimedStatusUpdate();
         }
 
         public void UpdateServerStatus(Server server)
         {
-            // Update the form with the provided data
             if (server.IsOnline == true)
             {
                 serverStatusLabel.Text = "Online";
                 serverIpLabel.Text = server.ServerEP.Address.ToString();
                 serverPortLabel.Text = server.ServerEP.Port.ToString();
                 
-                // Check if the socket is open
-                if (server.SocketTest() == true) 
+                if (true) // for debug => Server.Instance().TestSocket()
                 {
-                    OpenSocketLabel.Text = "Open";
-                    ClientCountLabel.Text = server.Clients.Count().ToString();
+                    OpenSocketLabel.Text = "Open? idk..";
+                    //ClientCountLabel.Text = server.Clients.Count().ToString();
                     
                     PingLabel.Text = server.PingNetwork().ToString() + "ms";
                 }
@@ -102,7 +100,10 @@ namespace TicketServer
             StopServerButton.Enabled = false;
             
             serverStatusLabel.Text = "Starting...";
-            UpdateServerStatus(Server.Instance().StartServer());
+
+            var server = Server.Instance();
+            server.Start();
+            UpdateServerStatus(server);
         }
 
         private void StopServerButton_Click(object sender, EventArgs e)
@@ -116,7 +117,9 @@ namespace TicketServer
             ClientCountLabel.Text = "";
 
             serverStatusLabel.Text = "Stopping...";
-            UpdateServerStatus(Server.Instance().StopServer());
+            var server = Server.Instance();
+            server.Stop();
+            UpdateServerStatus(server);
 
         }
 
@@ -126,7 +129,9 @@ namespace TicketServer
             StopServerButton.Enabled = false;
 
             serverStatusLabel.Text = "Restarting...";
-            UpdateServerStatus(Server.Instance().RestartServer());
+            var server = Server.Instance();
+            server.Restart();
+            UpdateServerStatus(server);
 
         }
 
@@ -181,7 +186,7 @@ namespace TicketServer
             Task.Delay(200).Wait();
 
             PingLabel.Text = server.PingNetwork().ToString() + "ms";
-            ClientCountLabel.Text = server.Clients.Count().ToString();
+            ClientCountLabel.Text = server.tcpClients.Count().ToString();
         }
 
 

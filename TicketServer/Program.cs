@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TicketServer.Utilities;
 using TicketServer.Properties;
+using TicketServer.Utilities.Database;
 
 namespace TicketServer
 {
@@ -33,7 +34,9 @@ namespace TicketServer
 
             };
 
-            Application.Run(loginForm);
+            
+
+            Application.Run(new ServerForm());
 
         }
         

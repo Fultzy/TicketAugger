@@ -140,6 +140,7 @@
             this.Controls.Add(this.usernameTextBox);
             this.Controls.Add(this.passwordTextBox);
             this.Name = "LoginForm";
+            this.Sizable = false;
             this.Text = "Server";
             this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);

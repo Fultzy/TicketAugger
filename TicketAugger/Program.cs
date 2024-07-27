@@ -18,17 +18,12 @@ namespace TicketAugger
         [STAThread]
         static void Main()
         {
-            SettingsFile.Apply();
-
-            // Exmaple use:
-            var settings = new Settings();
-            var ip = settings.Server_ipaddress;
-            var port = settings.Server_port;
-            // MessageBox.Show(ip + ":" + port);
-
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            
+            
+            SettingsFile.Apply();
+            AuggerClient.Instance();
 
 
             LoginForm loginForm = new LoginForm();
